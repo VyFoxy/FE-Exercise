@@ -1,7 +1,6 @@
 import React from "react";
 import {connect, useSelector} from 'react-redux'
 import {useTranslation} from 'react-i18next'
-import { Typography } from "@mui/material";
 
 function User() {
     const {t} = useTranslation();
@@ -10,14 +9,14 @@ function User() {
     return (
         <div id="main">
         <div  className="a-box">
-            
+
             <div className="s-b-text">
             <h2></h2> <br></br>
-            <h2></h2> <br></br> 
-            
+            <h2></h2> <br></br>
+
             <p><b>{t('username')}:</b> {dataUser.username}<br></br><b> bearerToken:</b> {dataUser.bearerToken}<br></br><b> {t('type')}:</b> {dataUser.type}
             <br></br><b> {t('expiredTime')}:</b> {dataUser.expiredTime}<br></br><b> {t('time')}:</b> {dataUser.time}</p>
-            <br></br> 
+            <br></br>
             </div>
         </div>
         </div>
@@ -29,5 +28,5 @@ function mapStateToProps(state) {
         dataRedux: state.user
     };
   }
-  
+
 export default connect(mapStateToProps)(User);

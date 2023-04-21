@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,13 +9,12 @@ import {createStore} from 'redux'
 import rootReducer from './store/reducer/rootReducer';
 import './i18n/i18n.ts';
 const reduxStore =createStore(rootReducer)
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <BrowserRouter>
     <Provider store={reduxStore}>
         <App />
     </Provider>
-  </BrowserRouter>
+  </BrowserRouter>,document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

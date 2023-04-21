@@ -1,6 +1,6 @@
 import "./loginForm.css";
 import { setUser } from '../store/actions/setUser';
-import {useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import {connect, useDispatch, useSelector} from 'react-redux'
 import {} from 'react-i18next'
 import {useTranslation} from 'react-i18next'
@@ -13,7 +13,7 @@ function LoginForm() {
     const [username, setUsername]= useState('')
     const [password, setPassword]= useState('')
     const [sePassword, setSePassword]= useState('')
-   
+
   const [toggleState, setToggleState] = useState(1);
 
   //useEffect( () =>
@@ -43,7 +43,7 @@ function LoginForm() {
           password: password,
           type: 'EMPLOYEE'
       }),
-      
+
   })
 
   const responseJSON = await response.json()
@@ -54,7 +54,7 @@ function LoginForm() {
     dispatch(setUser(currentUser));
   }
 
-  
+
 
 }
 const changeLanguage = () => {
@@ -81,10 +81,10 @@ const changeLanguage = () => {
       <div className="content-tabs">
           <div
               className={toggleState === 1 ? "content  active-content" : "content"} >
-              
-              <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}> 
 
-                    <div class="f-container"> 
+              <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}>
+
+                    <div class="f-container">
                         <label for="uname"><b>{t('username')}</b></label><br/>
                         <input type="text" placeholder="Enter Username"  onChange={(e) => onUsernameChange(e)} name="uname" required/>
                         <br/>
@@ -99,8 +99,8 @@ const changeLanguage = () => {
           <div
           className={toggleState === 2 ? "content  active-content" : "content"}
         >
-          <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}> 
-                <div class="f-container"> 
+          <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}>
+                <div class="f-container">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username"  onChange={(e) => onUsernameChange(e)} name="uname" required/>
                     <br/>

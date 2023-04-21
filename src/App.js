@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { setUser } from './store/actions/setUser';
 
 import {connect, useDispatch, useSelector} from 'react-redux'
@@ -11,9 +11,9 @@ import LoginForm from './components/loginForm';
 function App() {
     //const [isLoggedIn, setIsLoggedIn] = useState(false);
     const isLoggedIn = useSelector((state) => state.isLogin)
-  
+
     if (isLoggedIn) {
-      return( 
+      return(
         <div>
           <NavBar >
           </NavBar>
