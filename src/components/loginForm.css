@@ -1,0 +1,132 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+.login-card {
+  width: 450px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 4rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(-6deg);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 20%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+.f-container input[type="text"],
+.f-container input[type="password"] {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem 1.5rem;
+  padding-left: calc(1rem * 3.5);
+  border-radius: 100px;
+  width: 20%;
+  transition: background 0.5s;
+}
+
+.f-container input:focus {
+  background: white;
+}
+
+.f-container button {
+  background: black;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: background 0.5s;
+}
+
+.f-container button:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+.content-tabs {
+  flex-grow: 1;
+}
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
