@@ -1,6 +1,11 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+export const locales = {
+  en: 'English',
+  vi: 'Tiếng Việt'
+}
+
 const resources = {
   en: {
     translation: {

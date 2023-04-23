@@ -11,7 +11,9 @@ function Header () {
         <div id="main">
             
             <div className="name">
-                <Typography variant="h2"><span>{t('hello')} {dataUser.username}<br></br> </span>  {t('subtitle')}</Typography>
+                <Typography classname="h2" variant="h2" sx={{fontWeight: 'bold'}} gutterBottom>
+                    <span>{t('hello')} {dataUser.username}<br></br> </span>  {t('subtitle')}
+                </Typography>
                 
             </div>
             

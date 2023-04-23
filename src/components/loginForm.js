@@ -4,7 +4,10 @@ import React, {useEffect, useState} from "react"
 import {connect, useDispatch, useSelector} from 'react-redux'
 import {} from 'react-i18next'
 import {useTranslation} from 'react-i18next'
-import { Typography } from "@material-ui/core";
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+
 
 function LoginForm() {
   const { i18n } = useTranslation();
@@ -14,15 +17,20 @@ function LoginForm() {
     const [password, setPassword]= useState('')
     const [sePassword, setSePassword]= useState('')
 
-  const [toggleState, setToggleState] = useState(1);
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
 
   //useEffect( () =>
     //changeLanguage()
   //)
 
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
+  
 
   const onUsernameChange = e => {
     setUsername(e.target.value)
@@ -33,6 +41,7 @@ function LoginForm() {
   const onSePassWordChange = e => {
     setSePassword(e.target.value)
   }
+
   const fetchUserList = async(e) => {
     e.preventDefault();
     const response = await fetch(`${process.env.REACT_APP_API_HOST}/core/account/v1/authentication`, {
@@ -64,23 +73,20 @@ const changeLanguage = () => {
 
   return(
     <div className="cointainer">
-      <div className="bloc-tabs">
-        <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(1)}
-        >
-          LogIn
-        </button>
-        <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(2)}
-        >
-          SignUp
-        </button>
-      </div>
+      <Paper square>
+      <Tabs
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}
+      >
+        <Tab label="LogIn"  value={0}/>
+        <Tab label="SignUp" value={1}/>
+      </Tabs>
+    </Paper>
       <div className="content-tabs">
           <div
-              className={toggleState === 1 ? "content  active-content" : "content"} >
+              className={value === 0 ? "content  active-content" : "content"} >
 
               <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}>
 
@@ -97,9 +103,9 @@ const changeLanguage = () => {
                 </form>
           </div>
           <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
+          className={value === 1 ? "content  active-content" : "content"}
         >
-          <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}>
+           <form className='form-cointainer' onSubmit={(e) => fetchUserList(e)}>
                 <div class="f-container">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" placeholder="Enter Username"  onChange={(e) => onUsernameChange(e)} name="uname" required/>
@@ -112,7 +118,7 @@ const changeLanguage = () => {
                     <br/>
                     <button type="submit">SignUp</button>
                 </div>
-          </form>
+          </form> 
         </div>
 
         </div>

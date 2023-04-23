@@ -109,7 +109,7 @@ nav .menu-btn,
 font-family: 'Montserrat';
 width: 500px;
 position: absolute;
-  left: 22%;
+left: 22%;
 top: 50%;
 transform: translate(-22%,-50%);
 }
